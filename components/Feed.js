@@ -128,7 +128,7 @@ export default function Feed() {
                 animate={{ opacity: 1, scale: 1 }}
                 // className="w-full h-full object-cover"
                 >
-                <h1 className='text-5xl font-serif text-center font-extradark m-10'>--Category--</h1>
+                <h1 className='text-5xl font-serif text-center font-extradark m-10'>-- Sub Category--</h1>
             </motion.div>
         <div className=" mt-10 grid gap-10 mx-4  grid-cols-1 md:grid-cols-3 lg:grid-cols-5">
                 {subcategories.map((nice) => (
