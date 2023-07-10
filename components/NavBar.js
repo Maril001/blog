@@ -2,14 +2,14 @@ import React from 'react'
 
 const NavBar = () => {
   return (
-    <div className='w-full h-34 bg-white shadow-'>
-        <div className='w-full h-[100%] p-2 flex justify-evenly'>
-            <img src='https://png.pngtree.com/png-vector/20190904/ourmid/pngtree-piano-instrument-musical-logo-designs-inspiration-isolated-on-png-image_1722665.jpg' alt='logo' className='w-[10%] h-[120%] mt-[-2%]'/>
+    <div className='w-full h-34 bg-white'>
+        <div className='w-full h-[100%] p-2 container mx-auto flex justify-center items-center"'>
+            <img src='https://png.pngtree.com/png-vector/20190904/ourmid/pngtree-piano-instrument-musical-logo-designs-inspiration-isolated-on-png-image_1722665.jpg' alt='logo' className='w-[10%] h-[120%] mt-[-2%] '/>
             <h1 className='font-serif text-center font-extradark flex text-5xl pt-6'>Music Blog..</h1>
         </div>
         <div className=' text-black center'>
-        <div className=' space-x-8 font-bold inline-flex ml-[40%] md:inline-flex pt-[1%] mt-35 md:text-sm text-black bg-white text-xl md:space-x-10'> {/**link container */}
-         <a href='/home'><h1 className='cursor-pointer hover:text-red-500'> Home </h1></a>
+        <div className=' space-x-8 font-bold inline-flex md:inline-flex pt-[1%] mt-35 md:text-sm text-black bg-white text-xl md:space-x-10'> {/**link container */}
+         <a href='/'><h1 className='cursor-pointer hover:text-red-500'> Home </h1></a>
          <a href ='/cat'><h1 className='cursor-pointer hover:text-red-500'> Categories </h1></a>
           <a href='/admin'><h1 className='cursor-pointer hover:text-red-500'> Add POST </h1></a>
         </div>
