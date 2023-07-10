@@ -14,10 +14,22 @@ const AdminPanel = () => {
   const [categories, setCategories] = useState([]);
   const [categoryImage, setCategoryImage] = useState('');
 
+  const [subCategoryName, setSubCategoryName] = useState('');
+  const [selectedSubCategory, setSelectedSubCategory] = useState('');
+  const [SubCategories, setSubCategories] = useState([]);
+  const [subCategoryImage, setSubCategoryImage] = useState('');
+
   useEffect(() => {
     // Fetch all categories on page load
     axios.get('/api/getCategory').then((res) => {
       setCategories(res.data.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    // Fetch all sub categories on page load
+    axios.get('/api/getSubCategory').then((res) => {
+      setSubCategories(res.data.data);
     });
   }, []);
 
@@ -48,6 +60,8 @@ const AdminPanel = () => {
       await axios.post('/api/createCategory', {
         categoryName,
         categoryImage,
+        SubCategory: selectedSubCategory,
+
       });
 
       console.log('Category created successfully');
@@ -55,8 +69,25 @@ const AdminPanel = () => {
       console.error('Error adding category:', error);
     }
   };
+
+  const AddSubCategory = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.post('/api/createsubcategory', {
+        subCategoryName,
+        subCategoryImage,
+
+      });
+
+      console.log('Sub Category created successfully');
+    } catch (error) {
+      console.error('Error adding sub category:', error);
+    }
+  };
+
   return (
-    <div>
+    <><div>
       <form onSubmit={AddPost} className="max-w-xl mx-auto  p-4">
         <div className="mb-4">
           <label htmlFor="title" className="block text-lg mb-1">
@@ -68,8 +99,7 @@ const AdminPanel = () => {
             className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
             placeholder="Title"
             value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
+            onChange={(e) => setTitle(e.target.value)} />
         </div>
         <div className="mb-4">
           <label htmlFor="headerImage" className="block text-lg mb-1">
@@ -81,8 +111,7 @@ const AdminPanel = () => {
             className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
             placeholder="Header Image URL"
             value={Image}
-            onChange={(e) => setImage(e.target.value)}
-          />
+            onChange={(e) => setImage(e.target.value)} />
         </div>
         <div className="mb-4">
           <label htmlFor="header" className="block text-lg mb-1">
@@ -118,8 +147,7 @@ const AdminPanel = () => {
             className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
             placeholder="Author"
             value={author}
-            onChange={(e) => setAuthor(e.target.value)}
-          />
+            onChange={(e) => setAuthor(e.target.value)} />
         </div>
         <div className="mb-4">
           <label htmlFor="date" className="block text-lg mb-1">
@@ -131,8 +159,7 @@ const AdminPanel = () => {
             className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
             placeholder="Date"
             value={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
+            onChange={(e) => setDate(e.target.value)} />
         </div>
         <div className="mb-4">
           <label htmlFor="categoryName" className="block text-white font-bold font-darkage mb-2">
@@ -145,10 +172,29 @@ const AdminPanel = () => {
             className="w-full border font-darkage bg-white text-[#5E474C] border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
             required
           >
-            <option value="" >Select a category</option>
+            <option value="">Select a category</option>
             {categories.map((category) => (
               <option key={category._id} value={category._id} className='text-black'>
                 {category.categoryName}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="mb-4">
+          <label htmlFor="subCategoryName" className="block text-white font-bold font-darkage mb-2">
+            Sub Category
+          </label>
+          <select
+            id="SubCategory"
+            value={selectedSubCategory}
+            onChange={(e) => setSelectedSubCategory(e.target.value)}
+            className="w-full border font-darkage bg-white text-[#5E474C] border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
+            required
+          >
+            <option value="">Select a sub category</option>
+            {SubCategories.map((_subCategory) => (
+              <option key={_subCategory._id} value={_subCategory._id} className='text-black'>
+                {_subCategory.subCategoryName}
               </option>
             ))}
           </select>
@@ -160,7 +206,8 @@ const AdminPanel = () => {
           Publish
         </button>
       </form>
-      <form  onSubmit={AddCategory}>
+
+      <form onSubmit={AddCategory}>
         <div className="mb-4">
           <label htmlFor="categoryName" className="block text-black font-bold font-darkage mb-2">
             Category Name
@@ -172,8 +219,7 @@ const AdminPanel = () => {
             onChange={(e) => setCategoryName(e.target.value)}
             className="w-full font-darkage border border-gray-300 rounded px-3 py-2 focus:outline-none bg-[#F6F4EE] text-[#5E474C] focus:border-[#F6F4EE]"
             placeholder="Enter category name"
-            required
-          />
+            required />
         </div>
         <div className="mb-4">
           <label htmlFor="categoryImage" className="block text-black font-bold font-darkage mb-2">
@@ -185,8 +231,7 @@ const AdminPanel = () => {
             className="w-full font-darkage border border-gray-300 rounded px-3 py-2 focus:outline-none bg-[#F6F4EE] text-[#5E474C] focus:border-[#F6F4EE]"
             placeholder="Enter category image"
             onChange={(e) => setCategoryImage(e.target.value)}
-            required
-          />
+            required />
         </div>
         <div className="flex justify-end">
           <button
@@ -205,6 +250,51 @@ const AdminPanel = () => {
         </div>
       </form>
     </div>
+        
+
+      <form onSubmit={AddSubCategory}>
+        <div className="mb-4">
+          <label htmlFor="subCategoryName" className="block text-black font-bold font-darkage mb-2">
+            Sub Category Name
+          </label>
+          <input
+            type="text"
+            id="subCategoryName"
+            value={subCategoryName}
+            onChange={(e) => setSubCategoryName(e.target.value)}
+            className="w-full font-darkage border border-gray-300 rounded px-3 py-2 focus:outline-none bg-[#F6F4EE] text-[#5E474C] focus:border-[#F6F4EE]"
+            placeholder="Enter Sub category name"
+            required />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="subCategoryImage" className="block text-black font-bold font-darkage mb-2">
+            Sub Category Image
+          </label>
+          <input
+            type="text"
+            id="subCategoryImage"
+            className="w-full font-darkage border border-gray-300 rounded px-3 py-2 focus:outline-none bg-[#F6F4EE] text-[#5E474C] focus:border-[#F6F4EE]"
+            placeholder="Enter sub category image"
+            onChange={(e) => setSubCategoryImage(e.target.value)}
+            required />
+        </div>
+        <div className="flex justify-end">
+          <button
+            type="button"
+            className="text-[#5E474C] bg-red-400 py-2 px-4 rounded font-extrabold font-coffee mr-4"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="bg-blue-500 hover:bg-green-400 text-white font-semibold py-2 px-4 rounded font-coffee"
+          >
+            Publish
+          </button>
+        </div>
+       
+      </form>
+      </> 
   );
 };
 export default AdminPanel;

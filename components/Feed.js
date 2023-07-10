@@ -130,7 +130,7 @@ export default function Feed() {
                 >
                 <h1 className='text-5xl font-serif text-center font-extradark m-10'>-- Sub Category--</h1>
             </motion.div>
-        <div className=" mt-10 grid gap-10 mx-4  grid-cols-1 md:grid-cols-3 lg:grid-cols-5">
+        <div className=" mt-10 text-center grid gap-10 mx-4  grid-cols-1 md:grid-cols-3 lg:grid-cols-5">
                 {subcategories.map((nice) => (
                     <motion.div
 
