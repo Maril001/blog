@@ -2,9 +2,9 @@ import React from 'react'
 
 const NavBar = () => {
   return (
-    <div className='w-full h-34 bg-white'>
-        <div className='w-full h-[100%] p-2 container mx-auto flex justify-center items-center"'>
-            <img src='https://png.pngtree.com/png-vector/20190904/ourmid/pngtree-piano-instrument-musical-logo-designs-inspiration-isolated-on-png-image_1722665.jpg' alt='logo' className='w-[10%] h-[120%] mt-[-2%] '/>
+    <div className=' h-34 bg-white'>
+        <div className='h-[100%] p-2 container mx-auto flex justify-center items-center"'>
+            <img src='https://png.pngtree.com/png-vector/20190904/ourmid/pngtree-piano-instrument-musical-logo-designs-inspiration-isolated-on-png-image_1722665.jpg' alt='logo' className='w-[20%] h-[100%] mt-[-4%]'/>
             <h1 className='font-serif text-center font-extradark flex text-5xl pt-6'>Music Blog..</h1>
         </div>
         <div className=' text-black center'>
