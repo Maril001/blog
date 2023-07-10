@@ -16,7 +16,7 @@ const FeaturedCard = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 // className="w-full h-full object-cover"
                 >
-                <h1 className='text-5xl font-serif text-center font-extradark mt-[-5%] m-10'>--Musical Feed--</h1>
+                <h1 className='text-2xl md:text-5xl font-serif text-center font-extradark mt-[-5%] m-10'>--Musical Feed--</h1>
             </motion.div>
         </div>
     )

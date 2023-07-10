@@ -8,7 +8,7 @@ const NavBar = () => {
             <h1 className='font-serif text-center font-extradark flex text-5xl pt-6'>Music Blog..</h1>
         </div>
         <div className=' text-black center'>
-        <div className=' space-x-8 font-bold inline-flex md:inline-flex pt-[1%] mt-35 md:text-sm text-black bg-white text-xl md:space-x-10'> {/**link container */}
+        <div className=' space-x-8 font-bold flex justify-center pt-[1%] mt-35 md:text-sm text-black bg-white text-xl md:space-x-10'> {/**link container */}
          <a href='/'><h1 className='cursor-pointer hover:text-red-500'> Home </h1></a>
          <a href ='/cat'><h1 className='cursor-pointer hover:text-red-500'> Categories </h1></a>
           <a href='/admin'><h1 className='cursor-pointer hover:text-red-500'> Add POST </h1></a>
