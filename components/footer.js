@@ -1,9 +1,9 @@
 import React from 'react';
-import { FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { FaInstagram, FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa';
 const Footer = () => {
   return (
     <footer className="bg-black mt-5 py-2">
-      <div className="container mx-auto flex justify-center items-center">
+      <div className="container space-x-8 mx-auto flex justify-center items-center">
       <a
           href="https://www.instagram.com/_nyx_fiore_9/"
           target="_blank"
@@ -11,6 +11,14 @@ const Footer = () => {
           className="text-gray-300 hover:text-gray-400 mx-2"
         >
           <FaInstagram size={24} />
+        </a>
+        <a
+          href="https://github.com/Maril001"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-300 hover:text-gray-400 mx-2"
+        >
+          <FaGithub size={24} />
         </a>
         <a
           href="https://twitter.com/your-twitter-account"

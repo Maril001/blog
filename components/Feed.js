@@ -30,9 +30,18 @@ export default function Feed() {
 
     return (
 
-        <><div className="grid gap-16 mx-4 mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+        <>
+        <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                // className="w-full h-full object-cover"
+                >
+                <h1 className='text-2xl :text-5xl bg-[rgb(2,0,2)] text-[rgb(255,243,183)] font-serif text-center font-extradark m-10'>--Musical Feed--</h1>
+            </motion.div>
+            <div className="grid gap-16 mx-4 mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
 
             {blogPosts.map((post) => (
+                
                 <motion.div
 
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -61,5 +70,4 @@ export default function Feed() {
                     </div>
                 </motion.div>))}
         </div>
-        <Footer />
             </> )}

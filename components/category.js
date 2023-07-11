@@ -29,7 +29,7 @@ return(
     initial={{ opacity: 0, scale: 0.8 }}
     animate={{ opacity: 1, scale: 1 }}
 >
-    <h1 className='text-5xl font-serif text-center font-extradark m-10'>--Category--</h1>
+    <h1 className='text-5xl font-serif text-[rgb(255,251,150)] text-center font-extradark m-10'>--Category--</h1>
 </motion.div><div className=" mt-10 grid gap-10 mx-4  grid-cols-1 md:grid-cols-3 lg:grid-cols-5">
         {categories.map((nice) => (
             <motion.div
@@ -37,13 +37,13 @@ return(
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                className="bg-orange-600 shadow-lg h-[100%] w-[80%] rounded-full overflow-hidden"
+                className="bg-yellow-200 shadow-lg h-[100%] w-[80%] rounded-full overflow-hidden"
             >
                 <a href ='/scat'><img
                     src={nice.categoryImage}
                     alt="Blog Post"
-                    className="w-full h-80% className='cursor-pointer object-cover" /> </a>
-                <div className="p-3">
+                    className="w-full h-90% relative cursor-pointer object-cover" /> </a>
+                <div className="p-2">
                     <h2 className="text-sm font-bold font-mono mb-2 text-center text-black">{nice.categoryName}</h2>
                    
                 </div>

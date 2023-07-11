@@ -2,20 +2,21 @@ import React from 'react'
 
 const NavBar = () => {
   return (
-    <div className=' h-34 bg-white'>
+    <div className=' h-34'>
         <div className='h-[100%] p-2 container mx-auto flex justify-center items-center"'>
-            <img src='https://png.pngtree.com/png-vector/20190904/ourmid/pngtree-piano-instrument-musical-logo-designs-inspiration-isolated-on-png-image_1722665.jpg' alt='logo' className='w-[20%] h-[100%] mt-[-4%]'/>
-            <h1 className='font-serif text-center font-extradark flex text-5xl pt-6'>Music Blog..</h1>
+            {/*<img src='https://png.pngtree.com/png-vector/20190904/ourmid/pngtree-piano-instrument-musical-logo-designs-inspiration-isolated-on-png-image_1722665.jpg' alt='logo' 
+            className='w-[20%] h-[100%] mt-[-4%]'/>*/}
+            <h1 className='font-serif text-center bg-[rgb(0,3,19)] text-yellow-200 font-extradark flex text-5xl pt-6'>Music Blog..</h1>
         </div>
         <div className=' text-black center'>
-        <div className=' space-x-8 font-bold flex justify-center pt-[1%] mt-35 md:text-sm text-black bg-white text-xl md:space-x-10'> {/**link container */}
-         <a href='/'><h1 className='cursor-pointer hover:text-red-500'> Home </h1></a>
-         <a href ='/cat'><h1 className='cursor-pointer hover:text-red-500'> Categories </h1></a>
-          <a href='/admin'><h1 className='cursor-pointer hover:text-red-500'> Add POST </h1></a>
+        <div className=' space-x-8 font-bold font-serif flex justify-center pt-[1%] mt-35 md:text-sm text-white text-2xl md:space-x-10'> {/**link container */}
+         <a href='/'><h1 className='cursor-pointer hover:text-red-500 bg-[rgb(0,3,19)]'> Home </h1></a>
+         <a href ='/cat'><h1 className='cursor-pointer hover:text-red-500 bg-[rgb(0,3,19)]'> Categories </h1></a>
+          <a href='/admin'><h1 className='cursor-pointer hover:text-red-500 bg-[rgb(0,3,19)]'> Add POST </h1></a>
         </div>
     </div>
         <div className='relative group w-[20%] h-[100%] '>
-          <button className=' hover:text-black'>
+          <button className=' hover:text-white'>
             ...
           </button>
           <div className='absolute hidden rounded group-hover:block origin-top top-8 text-black'>
